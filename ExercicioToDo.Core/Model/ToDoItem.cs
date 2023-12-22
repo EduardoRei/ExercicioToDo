@@ -16,5 +16,10 @@ namespace ExercicioToDo.Core.Model
             Descricao = descricao;
             IsComplete = isComplete;
         }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Descricao = {Descricao}, Completa = {IsComplete}";
+        }
     }
 }

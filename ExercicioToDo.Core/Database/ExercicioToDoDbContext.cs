@@ -15,12 +15,12 @@ namespace ExercicioToDo.Core.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                string dbPath = ".\\ExercicioToDo.Core\\Todos.db";
-                optionsBuilder.UseSqlite($"Data Source={dbPath}");
+            var basePath = AppDomain.CurrentDomain.BaseDirectory;
 
-            }
+            // Construir o caminho completo para o arquivo do banco de dados
+            var dbPath = Path.Combine(basePath, "ExercicioToDo.Core", "Todos.db");
+
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }
 }
